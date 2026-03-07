@@ -145,7 +145,7 @@ export default function ProfilePage() {
                                 Expert Certificate
                             </h3>
                             <p className="text-xs text-gray-400 mb-4">
-                                You've reached Expert level! Download your official TypeFlow typing certificate.
+                                You&apos;ve reached Expert level! Download your official TypeFlow typing certificate.
                             </p>
                             <Button className="w-full bg-secondary hover:bg-secondary-hover text-navy font-bold shadow-[0_0_15px_rgba(255,183,3,0.3)]">
                                 <Download className="w-4 h-4 mr-2" />

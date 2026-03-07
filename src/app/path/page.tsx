@@ -84,7 +84,7 @@ export default function LearningPathPage() {
         return lessons.filter(l => l.level === levelId).sort((a, b) => a.order - b.order);
     };
 
-    const isUnlocked = (lessonId: string, index: number, levelLessons: LessonNode[]) => {
+    const isUnlocked = (lessonId: string, index: number) => {
         if (unlockedLessons.includes(lessonId)) return true;
         // For prototyping without real DB: if previous is unlocked, we might show it
         if (index === 0) return true; // First lesson of a level is unlocked if they reached the level
@@ -110,7 +110,7 @@ export default function LearningPathPage() {
             </div>
 
             <div className="space-y-24">
-                {LEVELS.map((level, levelIdx) => {
+                {LEVELS.map((level) => {
                     const levelLessons = getFilteredLessons(level.id);
                     const isLevelUnlocked = currentLevel >= level.id;
 
@@ -150,7 +150,7 @@ export default function LearningPathPage() {
                                 {/* Nodes */}
                                 <div className="space-y-8 relative z-10">
                                     {levelLessons.map((lesson, idx) => {
-                                        const unlocked = isLevelUnlocked && isUnlocked(lesson._id, idx, levelLessons);
+                                        const unlocked = isLevelUnlocked && isUnlocked(lesson._id, idx);
                                         const completed = isCompleted(lesson._id);
                                         const isRight = idx % 2 !== 0;
 

@@ -104,7 +104,7 @@ export async function PATCH(req: Request) {
 
         const updated = await User.findByIdAndUpdate(userId, update, { new: true }).select("-passwordHash");
         return NextResponse.json({ user: updated });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ message: "Internal server error" }, { status: 500 });
     }
 }

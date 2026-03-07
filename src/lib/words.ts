@@ -66,7 +66,7 @@ export function generateWords(options: WordGenerationOptions = {}): string {
     }
 
     const wordList = useAdvancedWords ? [...COMMON_WORDS, ...ADVANCED_WORDS] : COMMON_WORDS;
-    let generatedWords: string[] = [];
+    const generatedWords: string[] = [];
 
     // For timed/words/zen/ghost modes, generate a sequence of random words
     const targetCount = mode === 'timed' || mode === 'zen' || mode === 'ghost' ? 150 : count; // Generous amount for timed/zen

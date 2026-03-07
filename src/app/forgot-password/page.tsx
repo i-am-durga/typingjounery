@@ -21,7 +21,7 @@ export default function ForgotPasswordPage() {
         setError("");
 
         try {
-            const res = await fetch("/api/auth/forgot-password", {
+            await fetch("/api/auth/forgot-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),
@@ -109,7 +109,7 @@ export default function ForgotPasswordPage() {
                                 If an account exists for <strong className="text-white">{email}</strong>, you will receive a password reset link shortly.
                             </p>
                             <p className="text-gray-500 text-xs">
-                                The link expires in 15 minutes. Check your spam folder if you don't see it.
+                                The link expires in 15 minutes. Check your spam folder if you don&apos;t see it.
                             </p>
                         </div>
 

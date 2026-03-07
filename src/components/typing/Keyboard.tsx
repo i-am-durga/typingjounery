@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 const KEYBOARD_ROWS = [
     ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]"],
@@ -83,8 +82,8 @@ export function VirtualKeyboard({
                 {/* Spacebar */}
                 <div className="flex gap-3 justify-center w-full mt-2">
                     <div className={`flex items-center justify-center w-48 md:w-96 h-10 md:h-16 rounded-xl border-b-4 font-mono font-bold text-sm uppercase select-none transition-all duration-200 ${currentExpectedKey === " " ? "bg-purple-500/20 border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.5)] animate-pulse text-purple-200" :
-                            activeKey === " " ? (isError ? "bg-red-500 shadow-[0_0_15px_rgba(239,68,68,0.8)] border-red-400 text-white scale-95" : "bg-primary shadow-[0_0_15px_rgba(0,229,255,0.8)] border-primary text-navy scale-95") :
-                                "bg-navy-dark border-white/10 text-gray-500"
+                        activeKey === " " ? (isError ? "bg-red-500 shadow-[0_0_15px_rgba(239,68,68,0.8)] border-red-400 text-white scale-95" : "bg-primary shadow-[0_0_15px_rgba(0,229,255,0.8)] border-primary text-navy scale-95") :
+                            "bg-navy-dark border-white/10 text-gray-500"
                         }`}>
                         SPACE
                     </div>

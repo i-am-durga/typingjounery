@@ -5,12 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, CheckCircle, RefreshCw, AlertTriangle } from "lucide-react";
 
 export default function ResetPasswordPage() {
+    return (
+        <Suspense fallback={<div className="p-12 text-center text-gray-500">Loading...</div>}>
+            <ResetPasswordForm />
+        </Suspense>
+    );
+}
+
+function ResetPasswordForm() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
@@ -157,7 +165,7 @@ export default function ResetPasswordPage() {
                                 required
                             />
                             {confirmPassword && newPassword !== confirmPassword && (
-                                <p className="text-xs text-red-400">Passwords don't match</p>
+                                <p className="text-xs text-red-400">Passwords don&apos;t match</p>
                             )}
                         </div>
 

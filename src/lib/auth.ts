@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
@@ -48,8 +48,8 @@ export const authOptions: NextAuthOptions = {
         }),
     ],
     callbacks: {
-        async signIn({ user, account, profile }) {
-            if (account?.provider === "google") {
+        async signIn({ user, account }) {
+            if (account?.provider === "google" && user.email) {
                 await connectDB();
                 const existingUser = await User.findOne({ email: user.email });
 
@@ -79,7 +79,7 @@ export const authOptions: NextAuthOptions = {
         },
         async session({ session, token }) {
             if (session.user && token.id) {
-                (session.user as any).id = token.id;
+                Object.assign(session.user, { id: token.id });
             }
             return session;
         },

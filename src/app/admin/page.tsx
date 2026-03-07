@@ -109,7 +109,7 @@ export default function AdminPage() {
             <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
                 <Shield className="w-16 h-16 text-red-400 mb-4" />
                 <h1 className="text-3xl font-heading font-black text-white mb-2">Access Denied</h1>
-                <p className="text-gray-400 mb-6">You don't have admin privileges.</p>
+                <p className="text-gray-400 mb-6">You don&apos;t have admin privileges.</p>
                 <Link href="/dashboard">
                     <Button className="bg-primary text-navy font-bold">Back to Dashboard</Button>
                 </Link>
